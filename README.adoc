@@ -7,7 +7,7 @@
 **Note:** This Quickstart uses the Helm chart `jboss-eap/eap-xp4` (providing EAP XP 4 MicroProfile functionality) rather than `jboss-eap/eap74` (vanilla EAP 7.4) used by a lot of the other quickstarts.
 
 
-Make sure you have done all the link:{running-doc-url}#prerequisites[prerequisites] and link:{running-doc-url}#selectingcreating_a_project[selected/created a project].
+Make sure you have done all the link:{running-doc-url}#prerequisites[prerequisites] and link:{running-doc-url}#selectingcreating-a-project[selected/created a project].
 
 Additionally, you will need to download and install the `rhoas` CLI to interact with RHOSAK. The steps to do so can be found https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1/guide/b9d4f17b-923f-49a6-b513-954399fc2ddd[here].
 
