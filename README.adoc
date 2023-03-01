@@ -133,8 +133,6 @@ The Helm chart for the application can be found at link:./charts/helm.yaml[chart
 
 First let us examine the `build` section of the Helm chart.
 
-It says to use the `rhosak` directory under the quickstart as outlined in link:{running-doc-url}#introduction_to_helm_charts[Introduction to Helm Charts].
-
 We specify that we want to provision the `cloud-server` and `microprofile-reactive-messaging-kafka` layers as mentioned in link:{running-doc-url}#trimming_server[Trimming the provisioned server] section.
 
 In the `deploy` section, we mount a directory to via `volumes`/`volumeMounts`. As described in link:{running-doc-url}#mapping_configmap_secret_values_to_directory[Mapping entries from a ConfigMap/Secret to files in a mounted directory] files in `/etc/config/rhoas` directory will contain the entries in the `rhoas` secret we created before.
