@@ -7,7 +7,7 @@
 **Note:** This Quickstart uses the Helm chart `jboss-eap/eap-xp4` (providing EAP XP 4 MicroProfile functionality) rather than `jboss-eap/eap74` (vanilla EAP 7.4) used by a lot of the other quickstarts.
 
 
-Make sure you have done all the link:{running-doc-url}#prerequisites[prerequisites] and link:{running-doc-url}#selectingcreating-a-project[selected/created a project].
+Make sure you have done all the link:{running-doc-url}#prerequisites[prerequisites] and link:{running-doc-url}#selecting_creating_a_project[selected/created a project].
 
 Additionally, you will need to download and install the `rhoas` CLI to interact with RHOSAK. The steps to do so can be found https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry/1/guide/b9d4f17b-923f-49a6-b513-954399fc2ddd[here].
 
@@ -93,7 +93,7 @@ Finally we create a secret called `rhoas` with the contents of the rhoas.env fil
 oc create secret generic rhoas --from-env-file=./rhoas.env
 ```
 
-Creating a secret from an env file, is another way of adding a secret from link:{running-doc-url}#adding_a_secret_to_openshift[Adding a secret to OpenShift].
+Creating a secret from an env file, is another way of adding a secret from link:{running-doc-url}#adding_secret[Adding a secret to OpenShift].
 
 == Deploying the quickstart
 As mentioned we are using a different Helm chart as the basis for this Quickstart. It is the `jboss-eap/eap-xp4` one rather than the usual `jboss-eap/eap74` one. `jboss-eap/eap-xp4` augments the `jboss-eap/eap74` chart by adding MicroProfile functionality.
@@ -135,9 +135,9 @@ First let us examine the `build` section of the Helm chart.
 
 It says to use the `rhosak` directory under the quickstart as outlined in link:{running-doc-url}#introduction_to_helm_charts[Introduction to Helm Charts].
 
-We specify that we want to provision the `cloud-server` and `microprofile-reactive-messaging-kafka` layers as mentioned in link:{running-doc-url}#trimming_the_provisioned_server[Trimming the provisioned server] section.
+We specify that we want to provision the `cloud-server` and `microprofile-reactive-messaging-kafka` layers as mentioned in link:{running-doc-url}#trimming_server[Trimming the provisioned server] section.
 
-In the `deploy` section, we mount a directory to via `volumes`/`volumeMounts`. As described in link:{running-doc-url}#mapping_entries_from_a_configmapsecret_to_files_in_a_mounted_directory[Mapping entries from a ConfigMap/Secret to files in a mounted directory] files in `/etc/config/rhoas` directory will contain the entries in the `rhoas` secret we created before.
+In the `deploy` section, we mount a directory to via `volumes`/`volumeMounts`. As described in link:{running-doc-url}#mapping_configmap_secret_values_to_directory[Mapping entries from a ConfigMap/Secret to files in a mounted directory] files in `/etc/config/rhoas` directory will contain the entries in the `rhoas` secret we created before.
 
 The MicroProfile Reactive Messaging implementation uses MicroProfile Config to configure the connections to Kafka, so we use a CLI script to add the mappings. See link:{running-doc-url}#using_cli_scripts[Using CLI scripts] for how to add a CLI script to be run before the server starts in the pod. The link:./src/main/scripts/initialize-server.cli[initialize-server.cli] CLI script first adds the mounted `/etc/config/rhoas` directory as a config source in the MicroProfile Config subsystem.
 
