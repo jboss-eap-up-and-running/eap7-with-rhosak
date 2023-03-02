@@ -40,10 +40,10 @@ This will take a few minutes. Once the Status of `rhoas context status kafka` is
 
 === Create a topic
 Switch the context to our Kafka instance, and create a topic called `testing`.
-````shell
+```shell
 rhoas context set-kafka --name kabir-kafka
 rhoas kafka topic create --name testing
-````
+```
 
 === Get config to connect to Kafka
 Generate the config to connect to Kafka
